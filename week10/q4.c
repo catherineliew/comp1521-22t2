@@ -4,9 +4,9 @@
 
 void *print_msg_thread(void *arg) {
 
-    char *msg = (char *)arg;
+    char *msg = arg;
     while (1) {
-        printf("%s\n", msg);
+        printf("%s", msg);
     }
     
     return NULL;
@@ -14,8 +14,10 @@ void *print_msg_thread(void *arg) {
 
 int main(void) {
     
+    char *message = "Hello\n";
+    
     pthread_t thread;
-    pthread_create(&thread, NULL, print_msg_thread, "Hello ");
+    pthread_create(&thread, NULL, print_msg_thread, message);
     
     while (1) {
         printf("there!\n");
