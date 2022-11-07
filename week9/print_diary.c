@@ -17,7 +17,7 @@ int main(void) {
     // open file
     FILE *stream = fopen(pathname, "r");
     if (stream == NULL) {
-        perror("Failed to open file");
+        perror(pathname);
         return 1;
     }
     
